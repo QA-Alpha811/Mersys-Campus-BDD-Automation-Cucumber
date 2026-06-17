@@ -37,6 +37,16 @@ This repository houses an enterprise-level end-to-end UI test automation framewo
 | **Apache POI** | 5.4.1 | External Data-Driven Excel Integration Management |
 | **Maven** | 3.x | Build Lifecycle and Dependency Orchestration |
 
+## 🌟 Individual Contributions & Ownership
+
+While this framework was successfully launched as a collective sprint delivery by **TEAM3**, my individual technical ownership and implementation focused on designing, scripting, and executing the critical end-to-end business flows detailed below:
+
+| Technical User Story | Automated Functional Scope & Verification Points | Architectural Layer Details |
+|:---------------------|:-------------------------------------------------|:----------------------------|
+| 🛠️ **US_23** | **Core Module Configuration:** Engineered robust UI automation script validations for foundational system parameters, asserting seamless input sanitization and complex navigation routing states. | Dedicated step mappings linked to localized state repositories in `main/java/pages`. |
+| 🔄 **US_24** | **Data Consistency & Validation:** Covered state persistence controls, form submission workflows, dynamic tables verification, and synchronous data integrity across complex administrative views. | Fully decoupled behavioral tracking utilizing custom explicit wait conditions inside `utility/`. |
+| 🛡️ **US_25** | **Edge-Case Operations & System Stability:** Scripted dynamic error boundary handling, dynamic loader/spinner handling, and advanced modal verification tracks ensuring total service responsiveness. | Custom assertion matrices implemented using the structural TestNG validation engine. |
+
 ## 📝 Automated Modules & Functional Coverage
 
 The framework targets complex, cross-functional business workflows divided across specific technical User Stories mapped to the core system packages:
@@ -78,18 +88,22 @@ The automated test pipelines can be executed via terminal interfaces using versa
 
 Trigger Complete Test Execution Suite
 ```text
+Bash
 mvn clean test
 ```
 Execute a Specific Functional Suite Runner
 ```text
+Bash
 mvn test -Dtest=US_07_MessagingTrashRunner
 ```
 Run Tests Across Explicit Browsers
 ```text
+Bash
 mvn test -Dbrowser=firefox
 ```
 Execute Tagged Smoke or Regression Pipelines
 ```text
+Bash
 mvn test -Dcucumber.filter.tags="@smoke"
 ```
 📊 Automated Test Reporting
@@ -108,11 +122,10 @@ Automatic runtime screen capture bindings triggered on scenario failures.
 System metrics including baseline environmental tracking.
 
 To open the generated report natively via CLI:
-
 ```text
+Bash
 open target/ExtentReports/extent-report.html
 ```
-
 🏆 Engineering Best Practices
 Strict DOM Isolation: Keep test scripts immune to interface structure changes by containing all web element pointers within the pages/ layer.
 
