@@ -109,8 +109,10 @@ System metrics including baseline environmental tracking.
 
 To open the generated report natively via CLI:
 
-Bash
+```text
 open target/ExtentReports/extent-report.html
+```
+
 🏆 Engineering Best Practices
 Strict DOM Isolation: Keep test scripts immune to interface structure changes by containing all web element pointers within the pages/ layer.
 
