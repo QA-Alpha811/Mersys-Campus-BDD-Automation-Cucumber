@@ -1,185 +1,123 @@
-# MERSYS Campus - Test Automation Framework
+# 🏫 MERSYS Campus Management System - Test Automation Framework
 
 <div align="center">
 
-![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=java)
-![Selenium](https://img.shields.io/badge/Selenium-4.37.0-green?style=flat-square&logo=selenium)
-![Cucumber](https://img.shields.io/badge/Cucumber-7.30.0-brightgreen?style=flat-square&logo=cucumber)
-![TestNG](https://img.shields.io/badge/TestNG-7.11.0-red?style=flat-square)
-![Maven](https://img.shields.io/badge/Maven-Build-blue?style=flat-square&logo=apache-maven)
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=java)
+![Selenium](https://img.shields.io/badge/Selenium-4.37.0-green?style=for-the-badge&logo=selenium)
+![Cucumber](https://img.shields.io/badge/Cucumber-7.30.0-emerald?style=for-the-badge&logo=cucumber)
+![TestNG](https://img.shields.io/badge/TestNG-7.11.0-red?style=for-the-badge&logo=testng)
+![Maven](https://img.shields.io/badge/Maven-Build-blue?style=for-the-badge&logo=apache-maven)
 
-**A BDD Test Automation Framework by TEAM3**
+**Enterprise BDD Test Automation Architecture for School & Campus Management Framework**
 
 </div>
 
 ---
 
-## About The Project
+## 📋 About The Project
 
-This is an end-to-end test automation framework for the MERSYS Campus Management System. Built using Cucumber BDD and following the Page Object Model design pattern, it provides comprehensive test coverage for critical business functionalities.
+This repository houses an enterprise-level end-to-end UI test automation framework developed for the **MERSYS Campus Management System** during the intensive industry intern program. Engineered by **TEAM3**, the framework employs a distributed Behavior-Driven Development (BDD) approach using Cucumber and Selenium WebDriver under the Page Object Model (POM) architectural pattern. It delivers comprehensive cross-browser test coverage across vital institutional modules ranging from administrative configurations to monetary transactions, dynamic scheduling, and grading verification.
 
-**TEAM3** - Professional QA Engineering Team
+### ✨ Key Features
 
----
+- ✅ **Distributed POM Architecture:** Clean structural separation where locators reside inside `main/java/pages`, decoupled from the test verification suites.
+- ✅ **Multi-Module Coverage:** Full end-to-end automation pipelines validating Messaging, Finance, Assignment Control, and Student Attendance tracks.
+- ✅ **Dynamic Data Parameterization:** Integrated with **Apache POI** for data-driven testing pipelines using external Excel matrix logs.
+- ✅ **Rich Execution Analytics:** Configured with **ExtentReports** to dynamically capture execution timelines and embedded failure screenshots.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Java 21** - Programming Language
-- **Selenium WebDriver 4.37.0** - Browser Automation
-- **Cucumber 7.30.0** - BDD Framework
-- **TestNG 7.11.0** - Test Runner
-- **Maven** - Dependency Management
-- **ExtentReports 5.1.2** - Test Reporting
-- **Apache POI 5.4.1** - Excel Data Handling
+| Technology | Version | Purpose |
+|:-----------|:--------|:--------|
+| **Java** | 21 | Core Development Language |
+| **Selenium WebDriver** | 4.37.0 | Web Browser Automation Mechanics |
+| **Cucumber JVM** | 7.30.0 | Behavior-Driven Development (BDD) Framework |
+| **TestNG** | 7.11.0 | Test Execution Engine and Suite Controller |
+| **ExtentReports** | 5.1.2 | Advanced HTML HTML Test Reporting & Analytics |
+| **Apache POI** | 5.4.1 | External Data-Driven Excel Integration Management |
+| **Maven** | 3.x | Build Lifecycle and Dependency Orchestration |
 
----
+## 📝 Automated Modules & Functional Coverage
 
-## Project Structure
+The framework targets complex, cross-functional business workflows divided across specific technical User Stories mapped to the core system packages:
 
-```
+| Module Track | Test Boundaries (User Stories) | Functional Verification Scope |
+|:-------------|:-------------------------------|:------------------------------|
+| 🔐 **Authentication** | `US_01` | **Secure Gateway Validation:** Asserts authorization flows, session persistence, and error handling for invalid identity claims. |
+| 🏡 **Home & Navigation** | `US_02_03`, `US_04` | **Dashboard & Path Routing:** Controls home page widget loaders, dynamic broken links, global navigation trees, and menu mapping. |
+| ✉️ **Messaging System** | `US_05`, `US_06`, `US_07` | **Internal Communications:** Validates full message production, attachment handling, secure removal (Delete), and trash canvas recovery (Restore) triggers. |
+| 💰 **Finance Operations** | `US_08`, `US_09`, `US_12` | **Monetary Transactions:** Automates fee listings, student tuition balance logs, payment portal processing, and transactional verification logs. |
+| 📝 **Assignment Controls** | `US_18`, `US_20`, `US_21`, `US_22` | **Academic Progress Management:** Handles student assignment uploads, deadline counters, teacher review routing, and asset status updates. |
+| 📊 **Core Campus Modules** | Attendance, Calendar, Profile | **Institutional Operations:** Exercises automated synchronization for class attendance registers, calendar schedules, and personal profile modifications. |
+
+## 📁 Project Structure
+
+The codebase directory maps logically into a standardized Maven project blueprint:
+
+```text
 MERSYS_INTERN_PROJECT/
-├── src/
-│   ├── main/java/
-│   │   ├── pages/              # Page Object Model classes
-│   │   └── pojo/               # Data objects
-│   └── test/
-│       ├── java/
-│       │   ├── hooks/          # Test hooks
-│       │   ├── runner/         # Test runners
-│       │   ├── StepDefinitions/ # Cucumber steps
-│       │   └── utility/        # Helper utilities
-│       └── resources/
-│           └── features/       # Gherkin feature files
-├── pom.xml
-└── README.md
+├── pom.xml                               # Maven build dependencies and test suite plugins
+├── README.md                             # Comprehensive technical documentation
+└── src/
+    ├── main/
+    │   └── java/
+    │       ├── pages/                    # Encapsulated POM Locators & Component Actions
+    │       └── pojo/                     # Structured Plain Old Java Objects for Data Parsing
+    │
+    └── test/
+        └── java/
+            ├── hooks/                    # Dynamic Execution Setup & Teardown Blocks
+            ├── runner/                   # Specialized Feature Testing Suites & Parallel Launchers
+            ├── StepDefinitions/          # Gherkin-to-Java Structural Translation Layer
+            └── utility/                  # Core Driver Engine & Explicit Synchronization Components
+        └── resources/
+            └── features/                 # Executable Gherkin Behavior Definitions (.feature)
 ```
+🚀 Execution Configurations
+The automated test pipelines can be executed via terminal interfaces using versatile Maven parameters:
 
----
-
-## Prerequisites
-
-- Java Development Kit (JDK) 21 or higher
-- Apache Maven 3.6+
-- Git
-
----
-
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-organization/MERSYS_INTERN_PROJECT.git
-
-# Navigate to project directory
-cd MERSYS_INTERN_PROJECT
-
-# Install dependencies
-mvn clean install
-```
-
----
-
-## Test Coverage
-
-### Authentication
-- **US_01** - User Login
-
-### Home & Navigation
-- **US_02_03** - Home Page
-- **US_04** - Navigation
-
-### Messaging
-- **US_05** - Send Message
-- **US_06** - Delete Message
-- **US_07** - Trash Management (Restore/Delete)
-
-### Finance
-- **US_08, US_09, US_12** - Finance Operations
-
-### Assignments
-- **US_18, US_20, US_21, US_22** - Assignment Management
-
-### Additional Modules
-- Attendance Management
-- Calendar Operations
-- Profile Settings
-
----
-
-## Running Tests
-
-### Run all tests
-```bash
+Trigger Complete Test Execution Suite
+```text
 mvn clean test
 ```
-
-### Run specific test suite
-```bash
+Execute a Specific Functional Suite Runner
+```text
 mvn test -Dtest=US_07_MessagingTrashRunner
 ```
-
-### Run with specific browser
-```bash
-mvn test -Dbrowser=chrome
+Run Tests Across Explicit Browsers
+```text
+mvn test -Dbrowser=firefox
 ```
-
-### Run tests with tags
-```bash
+Execute Tagged Smoke or Regression Pipelines
+```text
 mvn test -Dcucumber.filter.tags="@smoke"
 ```
+📊 Automated Test Reporting
+Upon complete test pipeline processing, ExtentReports produces high-fidelity, standalone HTML documents capturing execution behaviors:
 
----
+Reports Location: target/ExtentReports/extent-report.html
 
-## Test Reports
+The analytics dashboard provides instant visual feedback containing:
 
-After test execution, **ExtentReports** generates a detailed HTML report:
+Consolidated Pass/Fail ratios with comprehensive metadata.
 
-**Location:** `target/ExtentReports/extent-report.html`
+Step-by-step description breakdowns for every executed user journey.
 
-The report includes:
-- Test execution summary with pass/fail statistics
-- Detailed test steps with descriptions
-- Screenshots for failed scenarios
-- Test execution timeline
-- System and environment information
+Automatic runtime screen capture bindings triggered on scenario failures.
 
-**To view the report:**
-```bash
+System metrics including baseline environmental tracking.
+
+To open the generated report natively via CLI:
+
+Bash
 open target/ExtentReports/extent-report.html
-```
+🏆 Engineering Best Practices
+Strict DOM Isolation: Keep test scripts immune to interface structure changes by containing all web element pointers within the pages/ layer.
 
----
+Atomic Gherkin Steps: Build reusable, decoupled step declarations to maximize script script maintainability.
 
-## Best Practices
+Asynchronous Synchronization: Enforce explicit webdriver waiting strategies over hardcoded thread breaks to eliminate pipeline flakiness.
 
-- Follow Page Object Model pattern for maintainability
-- Write clear and readable Gherkin scenarios
-- Use meaningful names for methods and variables
-- Keep test scenarios independent
-- Implement proper wait strategies
-- Clean up test data after execution
+State Cleanliness: Isolate test execution data pipelines, ensuring proper context resets after every lifecycle hook completion.
 
----
-
-## Contributing
-
-1. Create a feature branch (`git checkout -b feature/US_XX_description`)
-2. Commit your changes (`git commit -m 'Add US_XX test scenarios'`)
-3. Push to the branch (`git push origin feature/US_XX_description`)
-4. Create a Pull Request
-
----
-
-## Team
-
-**TEAM3** - QA Engineering Team
-
-Specialized in test automation, quality assurance, and continuous testing for enterprise applications.
-
----
-
-<div align="center">
-
-**Built with excellence by TEAM3**
-
-</div>
+Engineered with precision and excellence by TEAM3
